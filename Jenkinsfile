@@ -29,11 +29,11 @@ pipeline {
                 // Exclude node_modules from being added to the repository
                 bat 'echo node_modules/ >> .gitignore'
 
-                // Delete gh-pages branch if it exists
-                bat 'git branch -D gh-pages || true'
+                // // Delete gh-pages branch if it exists
+                // bat 'git branch -D gh-pages || true'
 
                 // Create gh-pages branch
-                bat 'git checkout -b gh-pages'
+                bat 'git checkout -b gh-pages || git checkout gh-pages'
 
                 // Clear contents of gh-pages branch
                 bat 'git rm -rf .'
