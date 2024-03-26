@@ -26,7 +26,7 @@ pipeline {
         }
 
         // Copy static files to a temporary directory
-        bat 'xcopy /s out gh-pages-temp'
+        bat 'xcopy /s /Y out gh-pages-temp' // Add the /Y option here
 
         // Exclude node_modules from being added to the repository
         bat 'echo node_modules/ >> .gitignore'
@@ -41,7 +41,7 @@ pipeline {
         bat 'git commit -m "Initial empty commit for GitHub Pages"'
 
         // Copy static files to the root directory
-        bat 'xcopy /s gh-pages-temp .'
+        bat 'xcopy /s /Y gh-pages-temp .' // Add the /Y option here
 
         // Exclude node_modules from being added to the repository
         bat 'echo node_modules/ >> .gitignore'
@@ -57,5 +57,6 @@ pipeline {
     }
 }
 
-    }
 }
+
+    }
